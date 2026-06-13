@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_gmail_messages
+    description: Cleaned Gmail messages from the Fivetran raw Gmail source.
+    columns:
+      - name: message_id
+        tests:
+          - not_null
+          - unique
+      - name: thread_id
+      - name: message_ts
+      - name: sender_email
+      - name: subject
+
+  - name: dim_gmail_sender
+    description: One row per Gmail sender.
+    columns:
+      - name: sender_email
+        tests:
+          - not_null
+          - unique
+      - name: message_count
+      - name: first_message_ts
+      - name: last_message_ts
+
+  - name: fct_gmail_message_activity
+    description: One row per Gmail message for analytics, Genie, Lakeview, and Power BI.
+    columns:
+      - name: message_id
+        tests:
+          - not_null
+          - unique
+      - name: message_date
+      - name: sender_email

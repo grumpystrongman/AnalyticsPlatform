@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: gmail_raw
+    database: "{{ var('raw_catalog', target.database) }}"
+    schema: "{{ var('gmail_raw_schema', 'gmail') }}"
+    loaded_at_field: _fivetran_synced
+
+    freshness:
+      warn_after:
+        count: 12
+        period: hour
+      error_after:
+        count: 24
+        period: hour
+
+    tables:
+      - name: message
+        identifier: message
+        description: Raw Gmail message table landed by Fivetran.
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: thread_id
+          - name: subject
+          - name: _fivetran_synced
+
+      - name: thread
+        identifier: thread
+        description: Raw Gmail thread table landed by Fivetran.
