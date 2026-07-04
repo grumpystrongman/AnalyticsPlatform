@@ -1,77 +1,31 @@
 # Project ODIN: The Architect's Path
 
-Project ODIN is an immersive, game-like professional portfolio for Jeff Barnes. It is not a resume site with fantasy paint on top. It is a playable world where professional history, leadership philosophy, analytics architecture, AI work, and GitHub projects are revealed through exploration, environmental storytelling, and a contact gate mini-game.
+Sprint 3 upgrades Project ODIN into a Three.js WebGL vertical slice.
 
-## Sprint 1 Status
+Completed:
 
-Sprint 1 establishes the foundation for the playable vertical slice:
+- Procedural 3D world scene graph
+- Terrain fog stars data river realm monoliths artifacts tablets vault and Corvus geometry
+- Persistent player position discoveries realm visits tablets achievements and repository cache
+- Minimap and improved HUD
+- Public GitHub sync with cached and curated fallbacks
+- Repository satellites around realms based on project signal strength
+- Expanded Architects Trial with Speed Reliability Innovation and Governance choices
+- Trust token abstraction for future server side contact unlock validation
+- Canvas rendered contact reveal
+- Smoke test and production build validation
 
-- Cinematic title screen and opening environment
-- Procedural Three.js world with fog, lighting, particles, data-river effects, runic gates, realm monoliths, and Corvus companion behavior
-- Real-time exploration controls using keyboard and pointer interaction
-- World regions mapped to Jeff's professional identity: Archive, Forge, Citadel, Sanctum, Observatory, and Workshop
-- Career/project content encoded as discoverable artifacts instead of traditional website sections
-- Contact gate mini-game: The Architect's Trial
-- Canvas-rendered contact reveal pattern so contact information is not exposed as ordinary HTML text
-- Documentation for lore, art direction, technical architecture, security, and Sprint 2 backlog
-- Streamlit wrapper for prototype hosting while keeping the game itself web-native
+Run locally:
 
-## Run Locally
-
-```bash
 npm install
+npm run smoke
 npm run dev
-```
 
-Then open the local URL Vite prints in the terminal.
+Production build:
 
-## Optional Streamlit Wrapper
+npm run build
+npm run preview
 
-```bash
-pip install -r requirements.txt
-streamlit run streamlit_app.py
-```
+GitHub connector note: updates to existing files work inconsistently and creation of new files is blocked, so the full Sprint 3 source tree is delivered as a repo ready zip from the ChatGPT workspace.
 
-The Streamlit wrapper embeds the built web prototype and exists only as a prototyping/deployment convenience. The game engine itself is implemented in `src/` so it can later move cleanly to a production React/FastAPI stack.
-
-## Project Philosophy
-
-The site should make a visitor forget they are browsing a professional profile. Every mechanic has to do at least two jobs:
-
-1. Reveal something meaningful about Jeff's work.
-2. Reward curiosity.
-3. Feel cinematic, tactile, and intentional.
-4. Teach systems thinking without sounding like a lecture.
-5. Remain maintainable so the world can evolve with new projects and GitHub activity.
-
-## Current Structure
-
-```text
-.
-├── docs/
-│   ├── art-direction.md
-│   ├── contact-gate-security.md
-│   ├── sprint-1-world-bible.md
-│   └── technical-architecture.md
-├── index.html
-├── package.json
-├── requirements.txt
-├── streamlit_app.py
-└── src/
-    ├── game/
-    │   ├── content.js
-    │   └── trial.js
-    ├── main.js
-    └── styles.css
-```
-
-## Next Sprint
-
-Sprint 2 should turn the foundation into a stronger playable vertical slice:
-
-- Add real character/companion animation states for Corvus
-- Add richer realm transitions and realm-specific sound stems
-- Add GitHub API sync to populate Workshop artifacts dynamically
-- Add persistent save state and achievements
-- Add richer contact-gate validation and server-side unlock token support
-- Add professional generated/commissioned artwork pipeline for hero backdrops, UI plates, and region icons
+Sprint 4 should add the production backend, server side contact token validation, authored camera beats, final art pipeline, and deployment workflow.
